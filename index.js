@@ -2,7 +2,7 @@ const {graphiqlExpress, graphqlExpress} = require('apollo-server-express/dist');
 const bodyParser = require('body-parser');
 const express = require('express');
 
-const port = 3030;
+const port = process.env.PORT || 3030;
 const app = express();
 const endpointURL = '/graphql';
 
