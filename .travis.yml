@@ -6,3 +6,18 @@ services:
 install:
 - npm i
 - npm run docker
+deploy:
+  - provider: cloudfoundry
+    api: https://api.run.pivotal.io
+    username: david.ahern26@gmail.com
+    password:
+      secure: XbCF1UUdh4qyFT45QXczqrsQR6QFWM2EIXIEHN9KYdaZZ4H1NCbNiZUdlmRyDSyZQ0bhVHEN5WW9ea+6Ckefh2NXXZg/7gbh9xRhPDpRkH4ndRFawkq3qeUZtGcY9d1iSgq4eFcjeJmHv7X8uZfpc1+UUJf++5C11OQPGZs1HxOt92vO77wGvOVGwqtkY7RT/VEG1IRNhta6v8QHZeXJ0045pjNpHa6oFsD96TfFSCYphJr3w0BpFCjv1MrHBb82Ym6bV6+jKuUwZug1Jt1pMgb7FKY/YHWrNH1rHgGCEGEliZxWVxBOY23TMwvX+jvzFQegYWyUrqojI1eCtgKiOEpPpq5XvwT1pszNGm1qnVd12V0OOwEoT1sbuySJZK9/pceY0WtLYtgUd6iLlLhfQ7oBJXyjC06mIv0K//XYP50oD9jz5To0kozvXCbt1ZyHC6eocpgKHm+Z5HtZcfSxWN0kC3zUBd5kK37sTlnxAHcAnpAj8HfejTVA84B82d3xQ5G5TZ/HyK8ykMScFs2iYrxfYP/KKt97Z1Lx0G5sdGvU3aVIG5BSS+H0s76IBgYK46KvXiXQVXJbDF63txEggux9Qfmyy+1QHUAfCilo1zaLWmarxjxUhsb0M6BKqJvZeQ2ylo1GIZTqQdfHz5ojJiFCl3zJI6EBtkAimxl3bHM=
+    organization: thor
+    space: dev
+    on:
+      repo: msc-blog-assignment/msc-blog-graphql
+      branch: develop
+  - provider: script
+    script: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" && yarn docker:tag && yarn docker:push
+    on:
+      branch: master
