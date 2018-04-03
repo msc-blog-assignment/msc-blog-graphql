@@ -1,11 +1,24 @@
 type Article {
     id: ID!
-    userId: String!
-    name: String!
-    content: String!
+    userId: String
+    name: String
+    content: String
+    user(auth: String): User!
+}
+
+type User {
+    id: ID!
+    username: String!
+    email: String!
+    articles(userId: String): [Article!]!
 }
 
 type Query {
+    # User
+    user(auth: String id: String): User!
+    users(auth: String): [User]!
+
+    # Article
     article(id: String): Article!
-    articles(filter: String): [Article]!
+    articles: [Article]!
 }
