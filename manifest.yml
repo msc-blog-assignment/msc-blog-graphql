@@ -1,6 +1,6 @@
 name: msc-blog-graphql
 instances: 1
-memory: 128M
+memory: 100M
 buildpack: nodejs_buildpack
 command: node .
 env:
