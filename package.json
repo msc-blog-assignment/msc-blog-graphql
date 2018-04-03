@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=8",
+    "npm": "5"
+  },
   "scripts": {
     "start": "node .",
-    "test": "exit 0"
+    "test": "exit 0",
+    "docker": "docker build -t mscblog/graphql .",
+    "docker:tag": "docker tag mscblog/graphql mscblog/graphql",
+    "docker:push": "docker push mscblog/graphql"
   },
   "keywords": [],
   "author": "",
