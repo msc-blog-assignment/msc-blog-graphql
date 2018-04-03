@@ -1,16 +1,40 @@
 type Article {
     id: ID!
+    createdAt: String!
     userId: String
     name: String
     content: String
     user(auth: String): User!
+    comments: [Comment]!
 }
 
 type User {
     id: ID!
+    createdAt: String!
     username: String!
     email: String!
     articles(userId: String): [Article!]!
+    comments: [Comment]!
+}
+
+type Comment {
+    id: ID!
+    createdAt: String!
+    userId: String!
+    articleId: String!
+    comment: String!
+    responses: [Response]!
+}
+
+type Response {
+    id: ID!
+    createdAt: String!
+    userId: String!
+    articleId: String!
+    commentId: String!
+    response: String!,
+    article: Article!
+    user(auth: String): User!
 }
 
 type Query {
@@ -21,4 +45,7 @@ type Query {
     # Article
     article(id: String): Article!
     articles: [Article]!
+
+    # Comment
+
 }
