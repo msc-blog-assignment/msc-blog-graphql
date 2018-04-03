@@ -1,0 +1,7 @@
+name: msc-blog-graphql
+instances: 1
+memory: 128M
+buildpack: nodejs_buildpack
+command: node .
+env:
+    OPTIMIZE_MEMORY : true
