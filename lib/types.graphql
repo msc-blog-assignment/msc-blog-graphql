@@ -1,0 +1,11 @@
+type Article {
+    id: ID!
+    userId: String!
+    name: String!
+    content: String!
+}
+
+type Query {
+    article(id: String): Article!
+    articles(filter: String): [Article]!
+}
