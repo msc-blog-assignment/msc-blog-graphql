@@ -8,7 +8,7 @@
     "npm": "5"
   },
   "scripts": {
-    "start": "node .",
+    "start": "cross-env USER_API=http://localhost:3000 ARTICLES_API=http://localhost:3001 node .",
     "test": "exit 0",
     "docker": "docker build -t mscblog/graphql .",
     "docker:tag": "docker tag mscblog/graphql mscblog/graphql",
@@ -30,5 +30,8 @@
     "subscriptions-transport-ws": "^0.9.7",
     "superagent": "^3.8.2",
     "superagent-cache": "^2.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.4"
   }
 }
