@@ -24,6 +24,17 @@ services:
     command: >
       /bin/bash -c "sleep 5; node ."
 
+  comments-api:
+    image: mscblog/comments-api:latest
+    ports:
+      - 3002:3000
+    networks:
+      main:
+        aliases:
+          - mscblog
+    command: >
+      /bin/bash -c "sleep 5; node ."
+
 networks:
   main:
 
