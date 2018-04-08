@@ -45,12 +45,10 @@ type Login {
 }
 
 type Mutation {
-    login (
-        username: String!
-        password: String!
-    ): Login
-}
+    login (username: String! password: String!): Login
 
+    createArticle (userId: String name: String content: String): Article
+}
 
 type Query {
     # User
@@ -62,5 +60,4 @@ type Query {
     articles: [Article]!
 
     # Comment
-
 }
