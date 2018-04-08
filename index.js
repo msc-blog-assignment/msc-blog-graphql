@@ -8,7 +8,10 @@ const endpointURL = '/graphql';
 
 const schema = require('./lib/schema');
 
-app.use(endpointURL, bodyParser.json(), graphqlExpress({schema}));
+app.use(endpointURL, bodyParser.json(), graphqlExpress(request => ({
+    schema,
+    context: request.headers.authorization
+})));
 app.use('/graphiql', graphiqlExpress({endpointURL}));
 
 app.listen(port, () =>

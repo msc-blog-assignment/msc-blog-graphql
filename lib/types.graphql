@@ -4,7 +4,7 @@ type Article {
     userId: String
     name: String
     content: String
-    user(auth: String): User!
+    user: User!
     comments: [Comment]!
 }
 
@@ -34,13 +34,13 @@ type Response {
     commentId: String!
     response: String!,
     article: Article!
-    user(auth: String): User!
+    user: User!
 }
 
 type Query {
     # User
-    user(auth: String id: String): User!
-    users(auth: String): [User]!
+    user(id: String): User!
+    users: [User]!
 
     # Article
     article(id: String): Article!

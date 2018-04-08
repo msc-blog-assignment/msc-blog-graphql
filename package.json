@@ -8,7 +8,7 @@
     "npm": "5"
   },
   "scripts": {
-    "start": "cross-env USER_API=http://localhost:3000 ARTICLES_API=http://localhost:3001 COMMENTS_API=http://lcoalhost:3002 node .",
+    "start": "cross-env USER_API=http://localhost:3000 ARTICLE_API=http://localhost:3001 COMMENTS_API=http://lcoalhost:3002 node .",
     "test": "exit 0",
     "docker": "docker build -t mscblog/graphql .",
     "docker:tag": "docker tag mscblog/graphql mscblog/graphql",
