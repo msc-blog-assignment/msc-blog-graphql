@@ -37,6 +37,21 @@ type Response {
     user: User!
 }
 
+type Login {
+    id: String!
+    ttl: Int!
+    created: String!
+    userId: String!
+}
+
+type Mutation {
+    login (
+        username: String!
+        password: String!
+    ): Login
+}
+
+
 type Query {
     # User
     user(id: String): User!
