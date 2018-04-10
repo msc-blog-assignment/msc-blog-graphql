@@ -58,7 +58,7 @@ type Query {
     # Article
     article(id: String!): Article!
     articles: [Article]!
-    myArticles(id: String!): Article!
+    myArticles(id: String!): [Article]!
 
     # Comment
 }
