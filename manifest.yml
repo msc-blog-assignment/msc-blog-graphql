@@ -5,5 +5,4 @@ buildpack: nodejs_buildpack
 command: node .
 env:
     OPTIMIZE_MEMORY : true
-    USER_API: https://msc-blog-user-api.cfapps.io
-    ARTICLE_API: https://msc-blog-article-api.cfapps.io
+    SERVICE_DISCOVERY_HOST: msc-blog-consul.cfapps.io
