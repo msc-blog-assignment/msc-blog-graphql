@@ -2,14 +2,24 @@ version: '2'
 
 services:
 
+  consul:
+    image: mscblog/consul:latest
+    ports:
+      - 5300:8080
+    networks:
+      - main
+
   user-api:
     image: mscblog/user-api:latest
     ports:
-      - 3000:3000
+      - 3000:80
+    environment:
+      SERVICE_DISCOVERY_HOST: consul
+      SERVICE_DISCOVERY_PORT: 8080
+      PORT: 80
+      VCAP_APPLICATION: '{"uris": ["user-api"]}'
     networks:
-      main:
-        aliases:
-          - mscblog
+      - main
     command: >
       /bin/bash -c "sleep 5; node ."
 
@@ -17,10 +27,13 @@ services:
     image: mscblog/article-api:latest
     ports:
       - 3001:3000
+    environment:
+      SERVICE_DISCOVERY_HOST: consul
+      SERVICE_DISCOVERY_PORT: 8080
+      PORT: 80
+      VCAP_APPLICATION: '{"uris": ["article-api"]}'
     networks:
-      main:
-        aliases:
-          - mscblog
+      - main
     command: >
       /bin/bash -c "sleep 5; node ."
 
@@ -28,15 +41,15 @@ services:
     image: mscblog/comments-api:latest
     ports:
       - 3002:3000
+    environment:
+      SERVICE_DISCOVERY_HOST: consul
+      SERVICE_DISCOVERY_PORT: 8080
+      PORT: 80
+      VCAP_APPLICATION: '{"uris": ["comments-api"]}'
     networks:
-      main:
-        aliases:
-          - mscblog
+      - main
     command: >
       /bin/bash -c "sleep 5; node ."
 
 networks:
   main:
-
-volumes:
-  yarn:
