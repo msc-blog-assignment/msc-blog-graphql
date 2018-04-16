@@ -3,7 +3,7 @@ instances: 1
 memory: 100M
 buildpack: nodejs_buildpack
 command: node .
+services:
+  - consul-service-discovery
 env:
     OPTIMIZE_MEMORY : true
-    USER_API: https://msc-blog-user-api.cfapps.io
-    ARTICLE_API: https://msc-blog-article-api.cfapps.io
