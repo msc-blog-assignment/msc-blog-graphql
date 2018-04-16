@@ -12,12 +12,11 @@ services:
   user-api:
     image: mscblog/user-api:latest
     ports:
-      - 3000:80
+      - 3000:3000
     environment:
-      SERVICE_DISCOVERY_HOST: consul
-      SERVICE_DISCOVERY_PORT: 8080
-      PORT: 80
-      VCAP_APPLICATION: '{"uris": ["user-api"]}'
+      SERVICE_DISCOVERY_HOST: ${consul_host}
+      SERVICE_DISCOVERY_PORT: ${consul_port}
+      HOSTNAME: localhost:3000
     networks:
       - main
     command: >
@@ -28,10 +27,9 @@ services:
     ports:
       - 3001:3000
     environment:
-      SERVICE_DISCOVERY_HOST: consul
-      SERVICE_DISCOVERY_PORT: 8080
-      PORT: 80
-      VCAP_APPLICATION: '{"uris": ["article-api"]}'
+      SERVICE_DISCOVERY_HOST: ${consul_host}
+      SERVICE_DISCOVERY_PORT: ${consul_port}
+      HOSTNAME: localhost:3001
     networks:
       - main
     command: >
@@ -42,10 +40,9 @@ services:
     ports:
       - 3002:3000
     environment:
-      SERVICE_DISCOVERY_HOST: consul
-      SERVICE_DISCOVERY_PORT: 8080
-      PORT: 80
-      VCAP_APPLICATION: '{"uris": ["comments-api"]}'
+      SERVICE_DISCOVERY_HOST: ${consul_host}
+      SERVICE_DISCOVERY_PORT: ${consul_port}
+      HOSTNAME: localhost:3002
     networks:
       - main
     command: >

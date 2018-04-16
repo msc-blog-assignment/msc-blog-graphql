@@ -8,7 +8,7 @@
     "npm": "5"
   },
   "scripts": {
-    "start": "cross-env SERVICE_DISCOVERY_HOST=localhost SERVICE_DISCOVERY_PORT=5300 node .",
+    "start": "cross-env HOSTNAME=localhost SERVICE_DISCOVERY_HOST=localhost SERVICE_DISCOVERY_PORT=5300 node .",
     "test": "exit 0",
     "docker": "docker build -t mscblog/graphql .",
     "docker:tag": "docker tag mscblog/graphql mscblog/graphql",
