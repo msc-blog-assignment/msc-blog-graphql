@@ -43,6 +43,7 @@ type Login {
     ttl: Int!
     created: String!
     userId: String!
+    totalArticles: Count!
 }
 
 type Count {
