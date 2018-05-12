@@ -53,7 +53,13 @@ type Count {
 type Mutation {
     login (username: String! password: String!): Login
 
+    # Articles
     createArticle (userId: String! name: String content: String): Article
+
+    # Comments
+    comment (userId: String! articleId: String! comment: String!): Comment
+
+    respondToComment (userId: String! articleId: String! commentId: String! response: String!): Response
 }
 
 type Query {
