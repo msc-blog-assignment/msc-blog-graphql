@@ -25,6 +25,7 @@ type Comment {
     articleId: String!
     comment: String!
     responses: [Response]!
+    user: User
 }
 
 type Response {
