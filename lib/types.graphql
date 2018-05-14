@@ -51,8 +51,14 @@ type Count {
     count: Int!
 }
 
+type Logout {
+    ok: Boolean!
+}
+
 type Mutation {
     login (username: String! password: String!): Login
+
+    logout: Logout
 
     # Articles
     createArticle (userId: String! name: String content: String): Article
