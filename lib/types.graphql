@@ -16,6 +16,7 @@ type User {
     articles(userId: String): [Article!]!
     totalArticles: Count!
     comments: [Comment]!
+    avatar: Avatar!
 }
 
 type Comment {
@@ -55,6 +56,11 @@ type Logout {
     ok: Boolean!
 }
 
+type Avatar {
+    userId: String!
+    avatar: String!
+}
+
 type Mutation {
     login (username: String! password: String!): Login
 
@@ -79,5 +85,6 @@ type Query {
     articles: [Article]!
     myArticles(id: String!): [Article]!
 
-    # Comment
+    # Avatar
+    avatar(userId: String!): Avatar!
 }
