@@ -14,7 +14,10 @@ app.use(endpointURL,
     apolloUploadExpress(/* Options */),
     graphqlExpress(request => ({
         schema,
-        context: request.headers.authorization
+        context: {
+            auth: request.headers.authorization,
+            request
+        }
     }))
 );
 app.use('/graphiql', graphiqlExpress({endpointURL}));

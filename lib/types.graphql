@@ -85,7 +85,7 @@ type Mutation {
     respondToComment (userId: String! articleId: String! commentId: String! response: String!): Response
 
     # Avatar
-    uploadAvatar(userId: String! file: Upload!): Avatar
+    uploadAvatar(userId: String! file: Upload!, size: Int!): Avatar
 }
 
 type Query {

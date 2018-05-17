@@ -81,7 +81,7 @@ services:
     environment:
       SERVICE_DISCOVERY_HOST: ${consul_host}
       SERVICE_DISCOVERY_PORT: ${consul_port}
-      HOSTNAME: localhost:3004
+      HOSTNAME: http://localhost:3004
     networks:
       - main
     command: >
