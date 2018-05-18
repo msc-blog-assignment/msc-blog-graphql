@@ -1,5 +1,14 @@
 scalar Upload
 
+type Me {
+    id: String!
+    username: String!
+    articles(userId: String): [Article!]!
+    totalArticles: Count!
+    comments: [Comment]!
+    avatar: Avatar!
+}
+
 type Article {
     id: ID!
     createdAt: String!
@@ -89,6 +98,10 @@ type Mutation {
 }
 
 type Query {
+
+    # me
+    me: Me!
+
     # User
     user(id: String): User!
     users: [User]!
