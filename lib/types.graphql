@@ -58,6 +58,7 @@ type Login {
     userId: String!
     totalArticles: Count!
     me: Me!
+    avatar: Avatar!
 }
 
 type Count {
